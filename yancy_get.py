@@ -41,7 +41,7 @@ def yancy_ihuan():
 
         # 设置Chrome选项
         chrome_options = Options()
-        chrome_options.binary_location = yancy_canshu.chrome_path
+        # chrome_options.binary_location = yancy_canshu.chrome_path
         chrome_options.add_argument('--headless')
 
         # 使用Service指定chromedriver路径

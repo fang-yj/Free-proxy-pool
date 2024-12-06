@@ -35,7 +35,7 @@ def main():
         print("使用 zdaye 获取代理池ip中...")
         yancy_zdaye()
     if args.run_ihuan:
-        print("使用 zdaye 获取代理池ip中...")
+        print("使用 ihuan 获取代理池ip中...")
         yancy_ihuan()
     else:
         parser.print_help()
