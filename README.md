@@ -12,8 +12,8 @@
 ```
 git clone https://github.com/Sgyling/yancy-dai-li_chi.git#
 cd yancy-dai-li_chi
-python -m pip install -r requirements.txt
-python run -h 
+python3 -m pip install -r requirements.txt
+python3 run.py -h 
 ```
 
 
