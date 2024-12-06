@@ -13,13 +13,13 @@ def main():
         "-z", "--run-zdaye",
         action="store_true",
         dest="run_zdaye",
-        help="使用 zdaye 获取代理池ip(高质量)"
+        help="使用 zdaye 获取代理池ip(高质量Linux\Windows\MACOS\Android模拟终端均可用)"
     )
     parser.add_argument(
         "-i","--run-ihuan",
         action="store_true",
         dest="run_ihuan",
-        help="使用 ihuan 获取代理池ip(高质量)"
+        help="使用 ihuan 获取代理池ip(高质量仅支持Windows)"
     )
 
     # 解析命令行参数
