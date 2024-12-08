@@ -8,6 +8,7 @@
 24年12月8号-0.2版本发布
 新添加了一个源，足以获取对应代理池ip.
 添加版本号。
+支持python3.11
 添加参数 -ip36
 ```
   -h, --help           show this help message and exit
