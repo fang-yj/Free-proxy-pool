@@ -19,3 +19,6 @@ chrome_path = fr'Application\chrome.exe'
 
 
 url3 = f'https://proxy.ip3366.net/free/?action=china&page={suijishu}'
+
+url4='https://list.proxylistplus.com/Fresh-HTTP-Proxy-List-1'
+url4_thead=['图标', 'IP 地址', '端口',	'类型',	'国家',	'谷歌',	'Https']
