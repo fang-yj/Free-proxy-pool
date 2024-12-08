@@ -16,3 +16,6 @@ url2_thead = ['IP地址',	'端口',	'地理位置',	'运营商',	'HTTPS',	'POST'
 
 driver_path = fr'chromedriver-win64\chromedriver.exe'
 chrome_path = fr'Application\chrome.exe'
+
+
+url3 = f'https://proxy.ip3366.net/free/?action=china&page={suijishu}'

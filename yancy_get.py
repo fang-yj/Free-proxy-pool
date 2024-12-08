@@ -103,3 +103,49 @@ def yancy_ihuan():
     except requests.exceptions.RequestException as e:
         print(f"出现了错误 {e}\n请更换ip或过段时间再重新获取")
         return []
+        
+
+def yancy_ip3366():
+    try:
+        # 发起 GET 请求
+        response = requests.get(data.yancy_canshu.url3, headers=data.yancy_canshu.url1_headers, timeout=10)
+        response.raise_for_status()  # 检查 HTTP 状态码
+        response.encoding = response.apparent_encoding  # 设置编码
+
+        # 解析 HTML 内容
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        # 获取 tbody 标签
+        tbody = soup.find("tbody")
+
+        # 解析表格数据
+        tbody_rows = []
+        for row in tbody.find_all("tr"):
+            cols = row.find_all("td")
+            
+            # 如果一行包含7列数据
+            if len(cols) == 7:
+                ip = cols[0].text.strip().replace("IP", "")
+                port = cols[1].text.strip().replace("PORT", "")
+                anonymity = cols[2].text.strip().replace("匿名度", "")
+                proxy_type = cols[3].text.strip().replace("类型", "")
+                location = cols[4].text.strip().replace("位置", "")
+                response_speed = cols[5].text.strip().replace("响应速度", "")
+                last_verified = cols[6].text.strip().replace("录取时间", "")
+
+                # 添加到 tbody_rows 列表中
+                tbody_rows.append([ip, port, anonymity, proxy_type, location, response_speed, last_verified])
+
+        # 打印表头
+        print("信息:", data.yancy_canshu.url1_thead)
+
+        # 打印每一行数据
+        for row in tbody_rows:
+            print("内容:", row)
+
+        return tbody_rows
+
+    except requests.exceptions.RequestException as e:
+        print(f"出现了错误 {e}\n请更换ip或过段时间再重新获取")
+        return []
+
