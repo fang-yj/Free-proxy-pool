@@ -1,18 +1,17 @@
 # yancy_qubiaoqian1.py
 from bs4 import BeautifulSoup
 from data import yancy_canshu
+import requests
+import re
 
 def clean_tag(tag):
-    """Remove other tags and retain only text."""
+    
+    
     return tag.get_text(strip=True)
 
 # def parse_table(thead, tbody):
 def parse_table(tbody):
-    """Parse thead and tbody elements of a table."""
-    # if thead:
-    #     thead_rows = [[clean_tag(th) for th in row.find_all("tr")] for row in thead.find_all("th")]
-    # else:
-    #     thead_rows = []
+
 
     if tbody:
         tbody_rows = [[clean_tag(td) for td in row.find_all("td")] for row in tbody.find_all("tr")]
@@ -42,11 +41,7 @@ def proxylistplu_table(table):
         if len(tbody_rows) == 8 and tbody_rows[0] == '' and isinstance(tbody_rows[2], str) and tbody_rows[2].isdigit():
             result_data.append(tbody_rows)
             print(tbody_rows)
-        # for td_tag in td_tags:
-        #     tbody_rows.append(td_tag.text.strip())
-        # print(' '.join(tbody_rows))
-        # tbody_rows1 = '  '.join(tbody_rows)
-        # print(result_data)
+
 
     return result_data
 
@@ -81,4 +76,23 @@ def ip3366_table(table):
                 print("内容:", row)
 
         return tbody_rows
+def openproxy_table(url):
+    # data = table.text
+
+    response = requests.get(url, headers=yancy_canshu.url5_headers,timeout=10)
+
+    if response.status_code == 200:
+        # soup = BeautifulSoup(response.text,'html.parser')
+        data = response.text
+        pattern = r'\b(?:\d{1,3}\.){3}\d{1,3}:\d+\b'
+        ip_port_matches = re.findall(pattern,data)
+        for match in ip_port_matches:
+            print(match)
+
+    else:
+        print('出现异常，状态码：{response.status_code}')
+    return []
+
+
+
 

@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import data.yancy_canshu
 from data import yancy_canshu
-from tools.yancy_qubiaoqian1 import parse_table,ihuan_table,proxylistplu_table,ip3366_table
+from tools.yancy_qubiaoqian1 import parse_table,ihuan_table,proxylistplu_table,ip3366_table,openproxy_table
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -143,4 +143,18 @@ def yancy_proxylistplu():
         print(f"出现了错误 {e}\n请更换ip或过段时间再重新获取")
         return []
 
+def yancy_openproxy():
+    try:
+        print('http代理如下：')
+        tables0 = openproxy_table(data.yancy_canshu.url5_http)
+        print('socks4代理如下：')
+        tables1 = openproxy_table(data.yancy_canshu.url5_socks4)
+        print('socks5代理如下：')
+        tables2 = openproxy_table(data.yancy_canshu.url5_socks5)
+        
+        return tables0,tables1,tables2
+
+    except requests.exceptions.RequestException as e:
+        print(f"出现了错误 {e}\n请更换ip或过段时间再重新获取")
+        return []
 
