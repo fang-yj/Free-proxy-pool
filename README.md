@@ -15,6 +15,7 @@
   
 如果有人觉得使用工具麻烦，请你直接查看data目录下的yancy_canshu.py文件，谢谢！请不要跟智障一样去我B站评论区瞎评论！
   
+![image](https://github.com/user-attachments/assets/a2cf492a-ecf2-44f3-9a41-5ef91f51ffd6)
 
 
 
@@ -71,7 +72,7 @@ options:
 ```
 
 
-#24年12月8号（甲辰年 丙子月 丙午日）上午 更新 - 0.2版本发布
+# 24年12月8号（甲辰年 丙子月 丙午日）上午 更新 - 0.2版本发布
 新添加了一个源，足以获取对应代理池ip.
 添加版本号。
 
@@ -84,12 +85,12 @@ options:
 
 ```
 
-24年12月6号-免费代理池工具发布!
+# 24年12月6号-免费代理池工具发布!
 免费的代理池-完全开源,可以提意见,后续会持续更新.
 
-#python版本:3.12 其他版本请自测
+python版本:3.12 其他版本请自测
 
-#使用教程:
+# 使用教程:
 
 ```
 git clone https://github.com/Sgyling/yancy-dai-li_chi.git#
@@ -104,6 +105,6 @@ python3 run.py -h
 
 ![image](https://github.com/user-attachments/assets/cbb8ee9e-eb96-4bfe-8ebd-0e068b45ef9a)
 
-QQ交流群:660264846
+# QQ交流群:660264846  B站：疯狂的杨CC 
 
 ![image](https://github.com/user-attachments/assets/aa6099f8-d09d-4a93-b781-30ce705499cd)
