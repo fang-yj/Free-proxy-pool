@@ -26,6 +26,7 @@
 
 当前总参数如下图:
 
+![image](https://github.com/user-attachments/assets/df43dfda-a043-4e6e-abda-ccf2ef34ad12)
 
 
 
