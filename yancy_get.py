@@ -2,10 +2,13 @@ import requests
 from bs4 import BeautifulSoup
 import data.yancy_canshu
 from data import yancy_canshu
-from tools.yancy_qubiaoqian1 import parse_table,ihuan_table,proxylistplu_table,ip3366_table,openproxy_table
+from tools.yancy_qubiaoqian1 import parse_table,ihuan_table,proxylistplu_table,ip3366_table,openproxy_table,proxy_list_table
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+import subprocess
+import os
+import tempfile
 
 def yancy_zdaye():
 
@@ -103,7 +106,6 @@ def yancy_ihuan():
     except requests.exceptions.RequestException as e:
         print(f"出现了错误 {e}\n请更换ip或过段时间再重新获取")
         return []
-        
 
 def yancy_ip3366():
     try:
@@ -133,7 +135,6 @@ def yancy_proxylistplu():
         # 解析 HTML 内容
         soup = BeautifulSoup(response.text, "html.parser")
 
-        
         tables = proxylistplu_table(soup)
         # print(tables)
 
@@ -151,10 +152,53 @@ def yancy_openproxy():
         tables1 = openproxy_table(data.yancy_canshu.url5_socks4)
         print('socks5代理如下：')
         tables2 = openproxy_table(data.yancy_canshu.url5_socks5)
-        
         return tables0,tables1,tables2
 
     except requests.exceptions.RequestException as e:
         print(f"出现了错误 {e}\n请更换ip或过段时间再重新获取")
         return []
+
+#获取proxy_list代理源
+def yancy_proxy_list():
+    try:
+        response = requests.get(data.yancy_canshu.url6, headers=data.yancy_canshu.url1_headers, timeout=10)
+        response.raise_for_status()  # 检查 HTTP 状态码
+        response.encoding = response.apparent_encoding  # 设置编码
+
+        # 解析 HTML 内容
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        # tables = proxylistplu_table(soup)
+        print('获取http代理如下:')
+        tables0 = proxy_list_table(soup)
+        # print(tables0)
+        return tables0
+
+    except requests.exceptions.RequestException as e:
+        print(f"出现了错误 {e}\n请更换ip或过段时间再重新获取")
+        return []
+
+#更新
+def yancy_update():
+    try:
+        # 先改变工作目录到上级目录（跨平台兼容写法）
+        os.chdir(os.path.pardir)
+        # 判断操作系统类型，构建对应的删除文件夹命令和克隆命令
+        if os.name == 'nt':  # Windows系统
+            remove_cmd = ['rd', '/S', '/Q', 'yancy-dai-li_chi']
+            clone_cmd = ['git', 'clone', 'https://github.com/Sgyling/Free-proxy-pool']
+        else:  # Linux和macOS系统
+            remove_cmd = ['rm', '-rf', 'yancy-dai-li_chi']
+            clone_cmd = ['git', 'clone', 'https://github.com/Sgyling/Free-proxy-pool']
+
+        # 使用git clone命令克隆仓库，如果文件夹已存在，git clone会报错，然后后续删除再重新克隆来模拟覆盖
+        try:
+            subprocess.check_call(clone_cmd)
+        except subprocess.CalledProcessError:
+            # 如果文件夹已存在导致git clone失败，先删除已存在的文件夹
+            subprocess.check_call(remove_cmd)
+            # 再重新尝试克隆
+            subprocess.check_call(clone_cmd)
+    except subprocess.CalledProcessError as e:
+        print(f"更新出错 {e}")
 

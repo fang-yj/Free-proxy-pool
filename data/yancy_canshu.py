@@ -43,3 +43,6 @@ url5_headers = {
     "Priority": "u=0, i",
     "Connection": "close"
 }
+url6 = 'https://www.proxy-list.download/HTTP'
+url6_thead=['IP地址','端口号','匿名程度','国家','延迟']
+

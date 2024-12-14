@@ -1,13 +1,14 @@
 import argparse
-from yancy_get import yancy_zdaye, yancy_ihuan, yancy_ip3366, yancy_proxylistplu, yancy_openproxy
+from data import yancy_canshu
+from yancy_get import yancy_zdaye, yancy_ihuan, yancy_ip3366, yancy_proxylistplu, yancy_openproxy,yancy_update,yancy_proxy_list
 import sys
 from io import StringIO
 
 def main():
     # 创建命令行参数解析器
     parser = argparse.ArgumentParser(
-        description="杨CC-获取代理池ip\nVersion：0.4",
-        usage="python run.py [-h] [-z] [-i] [-a] [-pr] [-op] [-O]"
+        # description="Free-proxy-pool - 杨CC - Version：0.5",
+        usage="python run.py [-h] [-z] [-i] [-pr] [-op] [-pl] [-O] [-up] [-a] "
     )
     # 添加各个参数，这里补充上 -O 参数的定义
     parser.add_argument("-z", "--run-zdaye", action="store_true", dest="run_zdaye",
@@ -18,13 +19,16 @@ def main():
                         help="使用ip3366获取代理持池（中质量/支持全系统）")
     parser.add_argument("-pr", "--run-proxylistplus", action="store_true", dest="run_proxylistplus",
                         help="使用 proxylistpus 获取代理池ip（中质量/支持全系统）")
+    parser.add_argument("-op", "--run-openproxy", action="store_true", dest="run_openproxy",
+                        help="使用 openproxy 源获取代理池（中质量/当前全系统可用）")
+    parser.add_argument("-pl", "--run-proxy_list", action="store_true", dest="run_proxy_list",
+                        help="使用 proxy_list 源获取代理池（中质量/当前全系统可用）")
+    parser.add_argument("-O", "--save-output", action="store_true", dest="save_output",
+                        help="将获取到的ip池存放在output目录中的Save file.txt文件中")
+    parser.add_argument("-up","--run-update",action='store_true',dest="run_update",
+                        help='获取最新版本的,代理池工具(需要有git和rm命令)')
     parser.add_argument("-a", "--run-all", action="store_true", dest="run_all",
                         help="运行所有参数（默认不使用-i参数，如果你是Widnows系统，请手动添加-i参数）")
-    parser.add_argument("-op", "--run-openproxy", action="store_true", dest="run_openproxy",
-                        help="使用 openproxy 源获取socks4代理池（中质量/当前全系统可用）")
-    parser.add_argument("-O", "--save-output", action="store_true", dest="save_output",
-                        help="将获取到的ip池存放在output目录中的svae.txt文件中")
-
     args = parser.parse_args()
 
     # 用于记录是否执行了有效参数对应的函数
@@ -65,7 +69,13 @@ def main():
         func_executed = True
         print("使用 openproxy 获取代理池中...")
         yancy_openproxy()
-
+    if args.run_update:
+        func_executed = True
+        print('更新代码中...')
+        yancy_update()
+    if args.run_proxy_list:
+        func_executed = True
+        yancy_proxy_list()
     if not func_executed:
         parser.print_help()
 
@@ -76,4 +86,9 @@ def main():
             f.write(redirected_output.getvalue())
 
 if __name__ == "__main__":
+    print(r"""
+        {\____/}
+        (｡◕ˇ∀ˇ◕）
+        /つ🍒Free-proxy-pool - 杨CC - - Version：0.5
+        """)
     main()
