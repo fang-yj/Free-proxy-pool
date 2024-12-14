@@ -23,6 +23,20 @@
 - 添加了proxy_list源
 - 优化了openproxy代理池的获取
 - 对多个部分进行了不同程度的优化
+  ```
+    -h, --help            show this help message and exit
+    -z, --run-zdaye       使用 zdaye 获取代理池ip(高质量/支持全系统/容易被封ip))
+    -i, --run-ihuan       使用 ihuan 获取代理池ip(高质量/仅支持Windows)
+    -ip36, --run-ip3366   使用ip3366获取代理持池（中质量/支持全系统）
+    -pr, --run-proxylistplus
+                          使用 proxylistpus 获取代理池ip（中质量/支持全系统）
+    -op, --run-openproxy  使用 openproxy 源获取代理池（中质量/当前全系统可用）
+    -pl, --run-proxy_list
+                          使用 proxy_list 源获取代理池（中质量/当前全系统可用）
+    -O, --save-output     将获取到的ip池存放在output目录中的Save file.txt文件中
+    -up, --run-update     获取最新版本的,代理池工具(需要有git和rm命令)
+    -a, --run-all         运行所有参数（默认不使用-i参数，如果你是Widnows系统，请手动添加-i参数）
+  ```
 
 当前总参数如下图:
 
