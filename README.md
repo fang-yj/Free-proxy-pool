@@ -150,8 +150,8 @@ python版本:3.12 其他版本请自测
 ## 使用教程:
 
 ```
-git clone https://github.com/Sgyling/yancy-dai-li_chi.git#
-cd yancy-dai-li_chi
+git clone https://github.com/Sgyling/Free-proxy-pool
+cd Free-proxy-pool
 python3 -m pip install -r requirements.txt
 python3 run.py -h 
 ```
