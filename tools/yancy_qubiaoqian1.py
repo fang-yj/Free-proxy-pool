@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from data import yancy_canshu
 import requests
 import re
+import subprocess
 
 def clean_tag(tag):
 
@@ -66,28 +67,35 @@ def ip3366_table(table):
                 # 添加到 tbody_rows 列表中
                 tbody_rows.append([ip, port, anonymity, proxy_type, location, response_speed, last_verified])
 
-            # 打印表头
-            print("信息:",yancy_canshu.url1_thead)
+        # 打印表头
+        print("信息:",yancy_canshu.url1_thead)
 
-            # 打印每一行数据
-            for row in tbody_rows:
-                print("内容:", row)
+        # 打印每一行数据
+        for row in tbody_rows:
+            print("内容:", row)
 
         return tbody_rows
 
 def openproxy_table(url):
     # data = table.text
-
-    response = requests.get(url, headers=yancy_canshu.url5_headers,timeout=10)
-
-    if response.status_code == 200:
+    command = ['curl ', url]
+    # print(command)
+    response = subprocess.run(command,capture_output=True,text=True,encoding='utf-8')
+    # response = requests.get(url, headers=yancy_canshu.url5_headers,timeout=10)
+    # print(response)
+    
+    if response != 0:
+        # print('编码:',response.encoding)
+        # response.encoding = 'utf-8'
         # soup = BeautifulSoup(response.text,'html.parser')
-        data = response.text
+        # print(soup)
+        # data = response.text
+        # print(data)
+        data = response.stdout
         pattern = r'\b(?:\d{1,3}\.){3}\d{1,3}:\d+\b'
         ip_port_matches = re.findall(pattern,data)
         for match in ip_port_matches:
             print(match)
-
     else:
         print('出现异常，状态码：{response.status_code}')
     return []

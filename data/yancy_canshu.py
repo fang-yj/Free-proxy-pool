@@ -46,3 +46,6 @@ url5_headers = {
 url6 = 'https://www.proxy-list.download/HTTP'
 url6_thead=['IP地址','端口号','匿名程度','国家','延迟']
 
+url7 = 'https://www.kuaidaili.com/free/fps/'
+url7_thead = ['ip','端口','匿名度','类型','位置','IP时效','最后验证时间','付费方式']
+

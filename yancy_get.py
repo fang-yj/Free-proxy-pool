@@ -146,11 +146,11 @@ def yancy_proxylistplu():
 
 def yancy_openproxy():
     try:
-        print('http代理如下：')
+        print('\nhttp代理如下：')
         tables0 = openproxy_table(data.yancy_canshu.url5_http)
-        print('socks4代理如下：')
+        print('\nsocks4代理如下：')
         tables1 = openproxy_table(data.yancy_canshu.url5_socks4)
-        print('socks5代理如下：')
+        print('\nsocks5代理如下：')
         tables2 = openproxy_table(data.yancy_canshu.url5_socks5)
         return tables0,tables1,tables2
 

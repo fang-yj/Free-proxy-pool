@@ -49,6 +49,7 @@ def main():
         yancy_ip3366()
         yancy_proxylistplu()
         yancy_openproxy()
+        yancy_proxy_list()
     if args.run_zdaye:
         func_executed = True
         print("使用 zdaye 获取代理池ip中...（此参数及其容易被封IP，少用！）")
@@ -89,6 +90,6 @@ if __name__ == "__main__":
     print(r"""
         {\____/}
         (｡◕ˇ∀ˇ◕）
-        /つ🍒Free-proxy-pool - 杨CC - - Version：0.5
+        /つ🍒Free-proxy-pool - 杨CC - - Version：0.5.1
         """)
     main()
