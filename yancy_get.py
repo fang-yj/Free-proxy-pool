@@ -183,8 +183,6 @@ def yancy_update():
     try:
         # 先改变工作目录到上级目录（跨平台兼容写法）
         os.chdir(os.path.pardir)
-        cd1_cmd = ['cd','..']
-        cd2_cmd = ['cd','Free-proxy-pool']
         # 判断操作系统类型，构建对应的删除文件夹命令和克隆命令
         if os.name == 'nt':  # Windows系统
             remove_cmd = ['rd', '/S', '/Q', 'Free-proxy-pool']
@@ -196,15 +194,13 @@ def yancy_update():
         # 使用git clone命令克隆仓库，如果文件夹已存在，git clone会报错，然后后续删除再重新克隆来模拟覆盖
         try:
             subprocess.check_call(clone_cmd)
-            subprocess.check_call(cd1_cmd)
-            subprocess.check_call(cd2_cmd)
+            os.chdir('../Free-proxy-pool')
         except subprocess.CalledProcessError:
             # 如果文件夹已存在导致git clone失败，先删除已存在的文件夹
             subprocess.check_call(remove_cmd)
             # 再重新尝试克隆
             subprocess.check_call(clone_cmd)
-            subprocess.check_call(cd1_cmd)
-            subprocess.check_call(cd2_cmd)
+            os.chdir('../Free-proxy-pool')
     except subprocess.CalledProcessError as e:
         print(f"更新出错 {e}")
 
