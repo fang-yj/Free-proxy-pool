@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import data.yancy_canshu
 from data import yancy_canshu
+import data.yancy_canshu
 from tools.yancy_qubiaoqian1 import parse_table,ihuan_table,proxylistplu_table,ip3366_table,openproxy_table,proxy_list_table
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -15,7 +15,7 @@ def yancy_zdaye():
 
     try:
         # 发起 GET 请求
-        response = requests.get(data.yancy_canshu.url1, headers=data.yancy_canshu.url1_headers, timeout=10)
+        response = requests.get(yancy_canshu.url1, headers=yancy_canshu.url1_headers, timeout=10)
         response.raise_for_status()  # 检查 HTTP 状态码
         response.encoding = response.apparent_encoding
 
@@ -29,7 +29,7 @@ def yancy_zdaye():
         tbody_rows = parse_table(tbody)
 
         # 打印表头和内容
-        print("信息:", data.yancy_canshu.url1_thead)
+        print("信息:", yancy_canshu.url1_thead)
         for row in tbody_rows:
             print("内容:", row)
 
@@ -111,7 +111,7 @@ def yancy_ihuan():
 def yancy_ip3366():
     try:
         # 发起 GET 请求
-        response = requests.get(data.yancy_canshu.url3, headers=data.yancy_canshu.url1_headers, timeout=10)
+        response = requests.get(yancy_canshu.url3, headers=yancy_canshu.url1_headers, timeout=10)
         response.raise_for_status()  # 检查 HTTP 状态码
         response.encoding = response.apparent_encoding  # 设置编码
 
@@ -129,7 +129,7 @@ def yancy_ip3366():
 def yancy_proxylistplu():
     try:
         # 发起 GET 请求
-        response = requests.get(data.yancy_canshu.url4, headers=data.yancy_canshu.url1_headers, timeout=10)
+        response = requests.get(yancy_canshu.url4, headers=yancy_canshu.url1_headers, timeout=10)
         response.raise_for_status()  # 检查 HTTP 状态码
         response.encoding = response.apparent_encoding  # 设置编码
 
@@ -148,11 +148,13 @@ def yancy_proxylistplu():
 def yancy_openproxy():
     try:
         print('\nhttp代理如下：')
-        tables0 = openproxy_table(data.yancy_canshu.url5_http)
+        # print(yancy_canshu.url5_http)
+        tables0 = openproxy_table(yancy_canshu.url5_http)
+        # print(tables0)
         print('\nsocks4代理如下：')
-        tables1 = openproxy_table(data.yancy_canshu.url5_socks4)
+        tables1 = openproxy_table(yancy_canshu.url5_socks4)
         print('\nsocks5代理如下：')
-        tables2 = openproxy_table(data.yancy_canshu.url5_socks5)
+        tables2 = openproxy_table(yancy_canshu.url5_socks5)
         return tables0,tables1,tables2
 
     except requests.exceptions.RequestException as e:
@@ -162,7 +164,7 @@ def yancy_openproxy():
 #获取proxy_list代理源
 def yancy_proxy_list():
     try:
-        response = requests.get(data.yancy_canshu.url6, headers=data.yancy_canshu.url1_headers, timeout=10)
+        response = requests.get(yancy_canshu.url6, headers=yancy_canshu.url1_headers, timeout=10)
         response.raise_for_status()  # 检查 HTTP 状态码
         response.encoding = response.apparent_encoding  # 设置编码
 
