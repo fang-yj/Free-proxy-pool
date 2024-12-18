@@ -194,13 +194,19 @@ def yancy_update():
         # 使用git clone命令克隆仓库，如果文件夹已存在，git clone会报错，然后后续删除再重新克隆来模拟覆盖
         try:
             subprocess.check_call(clone_cmd)
-            os.chdir('../Free-proxy-pool')
+            if os.path.exists('../Free-proxy-pool'):
+                    os.chdir('../Free-proxy-pool')
+                else:
+                    print("再次克隆后Free-proxy-pool目录仍不存在，无法切换工作目录，请检查问题所在。")
         except subprocess.CalledProcessError:
             # 如果文件夹已存在导致git clone失败，先删除已存在的文件夹
             subprocess.check_call(remove_cmd)
             # 再重新尝试克隆
             subprocess.check_call(clone_cmd)
-            os.chdir('../Free-proxy-pool')
+            if os.path.exists('../Free-proxy-pool'):
+                    os.chdir('../Free-proxy-pool')
+                else:
+                    print("再次克隆后Free-proxy-pool目录仍不存在，无法切换工作目录，请检查问题所在。")
     except subprocess.CalledProcessError as e:
         print(f"更新出错 {e}")
 
