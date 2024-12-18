@@ -90,6 +90,6 @@ if __name__ == "__main__":
     print(r"""
         {\____/}
         (｡◕ˇ∀ˇ◕）
-        /つ🍒Free-proxy-pool - 杨CC - - Version：0.5.1
+        /つ🍒Free-proxy-pool - 杨CC - - Version：0.5.2
         """)
     main()
