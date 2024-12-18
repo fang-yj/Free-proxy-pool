@@ -26,7 +26,7 @@ def main():
     parser.add_argument("-O", "--save-output", action="store_true", dest="save_output",
                         help="将获取到的ip池存放在output目录中的Save file.txt文件中")
     parser.add_argument("-up","--run-update",action='store_true',dest="run_update",
-                        help='获取最新版本的,代理池工具(需要有git和rm命令)')
+                        help='获取最新版本的,代理池工具(需要有git和删除命令)-运行完成后请使用cd ../Free-proxy-pool')
     parser.add_argument("-a", "--run-all", action="store_true", dest="run_all",
                         help="运行所有参数（默认不使用-i参数，如果你是Widnows系统，请手动添加-i参数）")
     args = parser.parse_args()
