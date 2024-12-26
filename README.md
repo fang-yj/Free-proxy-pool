@@ -13,8 +13,7 @@
 # Free-proxy-pool简介:
 
   这款工具是专门为了经常用到'爆破'/'扫描'/'抢票'/'撸空投'...等多ip使用场景,进行的开发,毕竟谁也不想扫描一半ip被封了,对吧?
-  ## 说在前面
-  虽然目前这款工具是完全免费且开源,但前期避免不了功能不完善,但各位哥哥姐姐,弟弟妹妹,可以提一些意见.或者请开发者喝杯茶?也都可以的~
+
 
 
 
@@ -218,7 +217,7 @@ options:
 
 python版本:3.12 其他版本请自测  
 
-## 使用教程:
+## 旧版使用教程:
 
 ```
 git clone https://github.com/Sgyling/Free-proxy-pool
@@ -226,6 +225,9 @@ cd Free-proxy-pool
 python3 -m pip install -r requirements.txt
 python3 run.py -h 
 ```
+
+  ## 请开发者喝杯咖啡?
+  ## 手机关机了,嗯哼,找不到收款码了~呜呜呜
 
 
 
