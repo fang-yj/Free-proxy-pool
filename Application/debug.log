@@ -1,3 +1,0 @@
-[0814/204116.678:ERROR:settings.cc(410)] Settings version is not 1
-[0907/013225.867:ERROR:registration_protocol_win.cc(108)] CreateFile: 系统找不到指定的文件。 (0x2)
-[0907/013233.236:ERROR:crashpad_client_win.cc(547)] CreateProcess: 页面文件太小，无法完成操作。 (0x5AF)
