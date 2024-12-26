@@ -12,7 +12,56 @@
 
 ​	不过有一点可能需要注意一下,因为这款工具本质上为爬取互联网上所公开的代理池,安全性本人并不能完全保证.请各位自行掂量
 
-## 协议支持
+## 新版协议支持
+
+|  协议  | 是否支持 |
+| :----: | :------: |
+|  http  |    √     |
+| https  |    √     |
+| socks4 |    ×     |
+| socks5 |    ×     |
+
+
+## 新版更新内容
+
+### V1.0-发布-甲辰年 丙子月 甲子日(24年阳历12月26)
+- [维护]重构整体代码
+- [维护]取消掉了命令行
+- [更新]使用了图形化界面
+- [优化]简单化图形界面
+- [优化]将输出一致更改为一行一个.
+- [优化]将输出内容更改为:xxx.xxx.xxx.xxx:xxx格式
+- [维护]暂时取消掉了socks4和socks5的代理池获取
+- [优化]pyhton3.8以上版本,均可使用
+- [优化]将整体代码优化到34kb(未来可能会逐步增加)
+- [维护]需要在本机安装curl命令,并且添加到环境变量
+- [优化]输出文件支持多种爆破/扫描工具直接使用
+- [优化]取消掉了臃肿的chromedriver
+- [优化]支持跨平台使用(包括但不限于:WIndows/Linux/MacOS/Android/模拟终端等)
+- [更新]添加了进度条,让其效果更直接
+- [更新]当发生错误后,该软件会自动对错误位置进行定位
+- [更新]在终端中添加了运行日志
+
+## 新版使用教程
+  ```
+    curl -v #如果没有请下载设置环境变量,不懂请百度
+    python --version #查看当前python版本是否为3.8以上
+    python -m pip install -r requirements.txt #安装支持库
+    python yancy_run_gui.py #运行
+  ```
+## 新版截图
+![image](https://github.com/user-attachments/assets/80abdcdf-59be-4395-a126-61c89d13bc9a)
+## -- 
+![image](https://github.com/user-attachments/assets/92f92cd2-03f5-4f4e-b29c-b11f470c3e64)
+## --
+![image](https://github.com/user-attachments/assets/2e7e00c1-c0dc-431a-90d7-35401d527165)
+## --
+![image](https://github.com/user-attachments/assets/def7aba1-bd70-4e87-9d8d-d0fe0cafde29)
+
+
+
+
+## 旧版协议支持
 
 |  协议  | 是否支持 |
 | :----: | :------: |
@@ -21,9 +70,7 @@
 | socks4 |    √     |
 | socks5 |    √     |
 
-
-## 更新内容
-
+## 老版本更新内容
 ### V0.5.2-甲辰年 丙子月 丙辰日
 
 - 修复偶尔‘-up’参数不能使用的bug
