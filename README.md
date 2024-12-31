@@ -44,6 +44,17 @@
 
 - [为什么突然更新?] 因为有人反馈bug了,所以修复了一些bug,顺带更新了~
 
+  ## 新版使用教程
+  ```
+    curl -v #如果没有请下载设置环境变量,不懂请百度
+    python --version #查看当前python版本是否为3.8以上
+    python -m pip install -r requirements.txt #安装支持库
+    python yancy_run_gui.py #运行
+  ```
+  ## V1.0.1 版本ip截图
+  ![image](https://github.com/user-attachments/assets/73f8fe5b-b11f-44e7-83bd-b33a49457187)
+
+
 ### V1.0-发布-甲辰年 丙子月 甲子日(24年阳历12月26)
 - [更新]重构整体代码
 - [维护]取消掉了命令行
