@@ -6,9 +6,11 @@ from tools.yancy_qubiaoqian1 import parse_table,ihuan_table,proxylistplu_table,i
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import subprocess
 import os
 import tempfile
+import shutil
 
 def yancy_zdaye():
 
@@ -41,14 +43,18 @@ def yancy_zdaye():
 def yancy_ihuan():
 
     try:
-
+        if not os.path.exists("chromedriver/chromedriver.exe"):
+            download_chromediver_path = ChromeDriverManager().install()
+            shutil.move(download_chromediver_path,"chromedriver")
+            shutil.rmtree(f"{os.path.expanduser('~')}/.wdm")
         # 设置Chrome选项
+        driver_path = "chromedriver/chromedriver.exe"
         chrome_options = Options()
         # chrome_options.binary_location = yancy_canshu.chrome_path
         chrome_options.add_argument('--headless')
 
         # 使用Service指定chromedriver路径
-        service = Service(yancy_canshu.driver_path)
+        service = Service(driver_path)
 
         # 创建webdriver实例
         driver = webdriver.Chrome(service=service, options=chrome_options)

@@ -1,8 +1,10 @@
 import argparse
-from data import yancy_canshu
+# from data import yancy_canshu
 from yancy_get import yancy_zdaye, yancy_ihuan, yancy_ip3366, yancy_proxylistplu, yancy_update,yancy_proxy_list
 import sys
-from io import StringIO
+# from io import StringIO
+import os
+
 
 def main():
     # 创建命令行参数解析器
@@ -116,4 +118,7 @@ if __name__ == "__main__":
         """)
 
 
-    main()
+    # main()
+    os.remove("output/out.txt")
+    yancy_ip3366()
+    yancy_proxylistplu()
