@@ -120,5 +120,15 @@ if __name__ == "__main__":
 
     # main()
     os.remove("output/out.txt")
+    # 使用 zdaye 获取代理池ip（高质量/支持全系统/容易被封ip）
+    yancy_zdaye()
+    # 使用 ihuan 获取代理池ip（高质量/仅支持Windows）
+    # yancy_ihuan()
+    # 使用ip3366获取代理持池（中质量/支持全系统）
     yancy_ip3366()
+    # 使用 proxylistpus 获取代理池ip（中质量/支持全系统）
     yancy_proxylistplu()
+    # 使用 openproxy 源获取代理池（中质量/当前全系统可用）
+    # yancy_openproxy()
+    # 使用 proxy_list 源获取代理池（中质量/当前全系统可用）
+    yancy_proxy_list()
