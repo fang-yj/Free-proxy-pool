@@ -280,18 +280,3 @@ cd Free-proxy-pool
 python3 -m pip install -r requirements.txt
 python3 run.py -h 
 ```
-
-  ## 请开发者喝杯咖啡吗?
-![751224431d36673004e5aa498ff9e4be](https://github.com/user-attachments/assets/f0084acf-3537-492d-823a-9678ac35b148)
-![6bdbc5d41cdf7b3f892152c8af7879d0](https://github.com/user-attachments/assets/fa9ad314-91ba-4b8c-9ba2-b34fe9c4179e)
-
-
-
-
-
-
-![image](https://github.com/user-attachments/assets/cbb8ee9e-eb96-4bfe-8ebd-0e068b45ef9a)
-
-# QQ交流群:660264846  B站：疯狂的杨CC 
-
-![image](https://github.com/user-attachments/assets/aa6099f8-d09d-4a93-b781-30ce705499cd)
